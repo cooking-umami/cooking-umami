@@ -45,6 +45,10 @@ const recipeSchema = new Schema({
   },
   rating: Number,
   review: String,
+  
+    // this second object adds extra properties: `createdAt` and `updatedAt`
+  timestamps: true,
+  
 });
 
 

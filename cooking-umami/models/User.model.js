@@ -14,6 +14,16 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Password is required."],
     },
+    nationality: String,
+    aboutMe: String,
+    profilePicture: {
+      type: String,
+      default: "",
+    },
+    gender: {
+      type: String,
+      enum:[male, female]
+    }
   },
   {
     timestamps: true,
