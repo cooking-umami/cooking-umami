@@ -22,7 +22,7 @@ const recipeSchema = new Schema({
     type: String,
     enum: [
       "breakfast",
-      "main_course",
+      "main-course",
       "soup",
       "snack",
       "drink",
@@ -38,18 +38,21 @@ const recipeSchema = new Schema({
     type: String,
     enum: ["Quick (10 min - 30 min)", "Medium (30 min - 1 hour)", "Long (1 hour+)"]
   },
-  creator: String,
+  creator: {type: Schema.Types.ObjectId, ref: 'User'},
   created: {
     type: Date,
     default: Date.now(),
   },
-  rating: Number,
-  review: String,
-  
-    // this second object adds extra properties: `createdAt` and `updatedAt`
-  timestamps: true,
-  
-});
+  rating: { 
+    type: [Number],
+    enum: [1, 2, 3, 4, 5],
+  },
+  review: [String],
+
+},
+{
+    timestamps: true,
+  });
 
 
 module.exports = model("Recipe", recipeSchema);
