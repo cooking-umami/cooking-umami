@@ -8,7 +8,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 // READ: List all recipes
 router.get("/recipes", (req, res, next) => {
   Recipe.find()
-    // .populate("creator")
+    .populate("creator")
     .then((recipesFromDB) => {
       const data = {
         recipesArr: recipesFromDB,
@@ -57,9 +57,8 @@ router.get("/recipes/:recipeId", (req, res, next) => {
   const recipeId = req.params.recipeId;
 
   Recipe.findById(recipeId)
-    // .populate("creator")
+    .populate("creator")
     .then((recipeDetails) => {
-        console.log(recipeDetails)
       res.render("recipes/recipe-details", recipeDetails);
     })
     .catch((error) => {
