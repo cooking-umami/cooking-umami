@@ -1,0 +1,22 @@
+<h1>List of recipes in our database</h1>
+
+<a href="/create">Create a new recipe</a>
+{{#each recipesArr}}
+  <section class="recipe-summary">
+    <h2>{{this.title}}</h2>
+    <p>
+      User:
+      {{this.creator.userName}}
+      <br />
+      Rating:
+      {{this.rating}}
+      <br />
+      <a href="/recipes/{{this._id}}">More details</a>
+      |
+      <a href="/recipes/{{this._id}}/edit">Edit</a>
+    </p>
+    <form action="/recipes/{{this._id}}/delete" method="POST">
+      <button>Delete</button>
+    </form>
+  </section>
+{{/each}}

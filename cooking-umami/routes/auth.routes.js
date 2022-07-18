@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-// ℹ️ Handles password encryption
+// ℹ️ Handles passwordHash encryption
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
@@ -19,17 +19,17 @@ router.get("/register", isLoggedOut, (req, res) => {
 });
 
 router.post("/register", isLoggedOut, (req, res) => {
-  const { username, password } = req.body;
+  const { userName, passwordHash } = req.body;
 
-  if (!username) {
+  if (!userName) {
     return res.status(400).render("auth/register", {
-      errorMessage: "Please provide your username.",
+      errorMessage: "Please provide your userName.",
     });
   }
 
-  if (password.length < 8) {
+  if (passwordHash.length < 8) {
     return res.status(400).render("auth/register", {
-      errorMessage: "Your password needs to be at least 8 characters long.",
+      errorMessage: "Your passwordHash needs to be at least 8 characters long.",
     });
   }
 
@@ -37,32 +37,31 @@ router.post("/register", isLoggedOut, (req, res) => {
   /*
   const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
 
-  if (!regex.test(password)) {
+  if (!regex.test(passwordHash)) {
     return res.status(400).render("register", {
       errorMessage:
-        "Password needs to have at least 8 chars and must contain at least one number, one lowercase and one uppercase letter.",
+        "PasswordHash needs to have at least 8 chars and must contain at least one number, one lowercase and one uppercase letter.",
     });
   }
   */
 
-  // Search the database for a user with the username submitted in the form
-  User.findOne({ username }).then((found) => {
-    // If the user is found, send the message username is taken
+  // Search the database for a user with the userName submitted in the form
+  User.findOne({ userName }).then((found) => {
+    // If the user is found, send the message userName is taken
     if (found) {
       return res
         .status(400)
-        .render("auth.register", { errorMessage: "Username already taken." });
+        .render("auth.register", { errorMessage: "userName already taken." });
     }
-
-    // if user is not found, create a new user - start with hashing the password
+    // if user is not found, create a new user - start with hashing the passwordHash
     return bcrypt
       .genSalt(saltRounds)
-      .then((salt) => bcrypt.hash(password, salt))
-      .then((hashedPassword) => {
+      .then((salt) => bcrypt.hash(passwordHash, salt))
+      .then((hashedPasswordHash) => {
         // Create a user and save it in the database
         return User.create({
-          username,
-          password: hashedPassword,
+          userName,
+          passwordHash: hashedPasswordHash,
         });
       })
       .then((user) => {
@@ -79,7 +78,7 @@ router.post("/register", isLoggedOut, (req, res) => {
         if (error.code === 11000) {
           return res.status(400).render("auth/register", {
             errorMessage:
-              "Username need to be unique. The username you chose is already in use.",
+              "userName need to be unique. The userName you chose is already in use.",
           });
         }
         return res
@@ -94,24 +93,23 @@ router.get("/login", isLoggedOut, (req, res) => {
 });
 
 router.post("/login", isLoggedOut, (req, res, next) => {
-  const { username, password } = req.body;
-
-  if (!username) {
+  const { userName, passwordHash } = req.body;
+  if (!userName) {
     return res.status(400).render("auth/login", {
-      errorMessage: "Please provide your username.",
+      errorMessage: "Please provide your userName.",
     });
   }
 
   // Here we use the same logic as above
-  // - either length based parameters or we check the strength of a password
-  if (password.length < 8) {
+  // - either length based parameters or we check the strength of a passwordHash
+  if (passwordHash.length < 8) {
     return res.status(400).render("auth/login", {
-      errorMessage: "Your password needs to be at least 8 characters long.",
+      errorMessage: "Your passwordHash needs to be at least 8 characters long.",
     });
   }
 
-  // Search the database for a user with the username submitted in the form
-  User.findOne({ username })
+  // Search the database for a user with the userName submitted in the form
+  User.findOne({ userName })
     .then((user) => {
       // If the user isn't found, send the message that user provided wrong credentials
       if (!user) {
@@ -120,9 +118,9 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         });
       }
 
-      // If user is found based on the username, check if the in putted password matches the one saved in the database
-      bcrypt.compare(password, user.password).then((isSamePassword) => {
-        if (!isSamePassword) {
+      // If user is found based on the userName, check if the in putted passwordHash matches the one saved in the database
+      bcrypt.compare(passwordHash, user.passwordHash).then((isSamePasswordHash) => {
+        if (!isSamePasswordHash) {
           return res.status(400).render("auth/login", {
             errorMessage: "Wrong credentials.",
           });

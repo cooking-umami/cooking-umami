@@ -41,6 +41,7 @@ const MONGO_URI =
     dishType: "main-course",
     image: "./images/garlic-shrimp.webp",
     duration :"Quick (10 min - 30 min)",
+    creator: "",
     rating: 5,
     review: "The best way to make shrimp in my opinion."
   },
@@ -53,6 +54,7 @@ const MONGO_URI =
     dishType: "main-course",
     image: "/images/lasagna.webp",
     duration : "Long (1 hour+)",
+    creator: "",
     rating: 3,
     review: "Easy recipe, but Italians would not approve."
   },
@@ -65,6 +67,7 @@ const MONGO_URI =
     dishType: "snack",
     image: "/images/popcorn.webp",
     duration : "Quick (10 min - 30 min)",
+    creator: "",
     rating: 4,
     review: "Be careful not to burn the kernels!"
   },
@@ -90,11 +93,11 @@ mongoose
 
     for (let i = 0; i<recipes.length; i++){
       if(i<1){
-        recipes[i].owner = usersCreated[0]._id
+        recipes[i].creator = usersCreated[0]._id
       } else if(i<2){
-        recipes[i].owner = usersCreated[1]._id
+        recipes[i].creator = usersCreated[1]._id
       }else{
-        recipes[i].owner = usersCreated[2]._id
+        recipes[i].creator = usersCreated[2]._id
       }
     }
     return Recipe.create(recipes);

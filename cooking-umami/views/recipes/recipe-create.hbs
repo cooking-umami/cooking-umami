@@ -1,0 +1,31 @@
+<h2>Create a recipe</h2>
+
+<form action="/create" method="POST">
+  <label>
+    Title:
+    <input type="text" name="title" />
+  </label>
+
+  <label>
+    User:
+    {{!-- <select name="user">
+
+      {{#each usersArr}}
+        <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+    </select> --}}
+    <input type="text" name="userName" />
+  </label>
+
+  <label>
+    Description:
+    <textarea name="description" cols="30" rows="4"> </textarea>
+  </label>
+
+  <label>
+    Rate:
+    <input type="number" name="rating" min="1" max="10" />
+  </label>
+
+  <button type="submit"> Create </button>
+</form>
