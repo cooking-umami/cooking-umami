@@ -1,6 +1,6 @@
-<h2>Create a book</h2>
+<h2>Create a recipe</h2>
 
-<form action="/recipes/create" method="POST">
+<form action="/create" method="POST">
   <label>
     Title:
     <input type="text" name="title" />
@@ -8,12 +8,13 @@
 
   <label>
     User:
-    <select name="user">
+    {{!-- <select name="user">
 
-      {{#each auserssArr}}
+      {{#each usersArr}}
         <option value="{{this._id}}">{{this.name}}</option>
       {{/each}}
-    </select>
+    </select> --}}
+    <input type="text" name="userName" />
   </label>
 
   <label>

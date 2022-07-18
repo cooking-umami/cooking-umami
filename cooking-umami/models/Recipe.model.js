@@ -26,7 +26,6 @@ const recipeSchema = new Schema({
   cuisine: {
     type: String,
     enum: ["Italian", "French", "English", "Chinese", "German", "Russian", "American", "Other"],
-    required: true,
   },
   dishType: {
     type: String,
