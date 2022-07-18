@@ -104,7 +104,7 @@ router.post("/recipes/:recipeId/edit", (req, res, next) => {
 });
 
 // DELETE: delete recipe
-router.post("/:recipeId/delete", isLoggedIn, (req, res, next) => {
+router.post("/recipes/:recipeId/delete", isLoggedIn, (req, res, next) => {
   const { recipeId } = req.params;
 
   Recipe.findByIdAndRemove(recipeId)

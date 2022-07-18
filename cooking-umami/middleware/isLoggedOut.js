@@ -3,9 +3,6 @@ module.exports = (req, res, next) => {
   // redirects the user to the home page
   if (req.session.user) {
     return res.redirect('/');
-    console.log(123)
   }
-  console.log(99)
-
   next();
 };

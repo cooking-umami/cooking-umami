@@ -16,21 +16,18 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get("/register", isLoggedOut, (req, res) => {
   res.render("auth/register");
-  console.log(1)
 });
 
 router.post("/register", isLoggedOut, (req, res) => {
   const { userName, passwordHash } = req.body;
 
   if (!userName) {
-  console.log(2)
     return res.status(400).render("auth/register", {
       errorMessage: "Please provide your userName.",
     });
   }
 
   if (passwordHash.length < 8) {
-  console.log(3)
     return res.status(400).render("auth/register", {
       errorMessage: "Your passwordHash needs to be at least 8 characters long.",
     });
@@ -41,7 +38,6 @@ router.post("/register", isLoggedOut, (req, res) => {
   const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
 
   if (!regex.test(passwordHash)) {
-  console.log(4)
     return res.status(400).render("register", {
       errorMessage:
         "PasswordHash needs to have at least 8 chars and must contain at least one number, one lowercase and one uppercase letter.",
@@ -53,12 +49,10 @@ router.post("/register", isLoggedOut, (req, res) => {
   User.findOne({ userName }).then((found) => {
     // If the user is found, send the message userName is taken
     if (found) {
-  console.log(5)
       return res
         .status(400)
         .render("auth.register", { errorMessage: "userName already taken." });
     }
-    console.log(6)
     // if user is not found, create a new user - start with hashing the passwordHash
     return bcrypt
       .genSalt(saltRounds)
@@ -71,13 +65,11 @@ router.post("/register", isLoggedOut, (req, res) => {
         });
       })
       .then((user) => {
-  console.log(7)
         // Bind the user to the session object
         req.session.user = user;
         res.redirect("/");
       })
       .catch((error) => {
-  console.log(8)
         if (error instanceof mongoose.Error.ValidationError) {
           return res
             .status(400)
@@ -97,14 +89,11 @@ router.post("/register", isLoggedOut, (req, res) => {
 });
 
 router.get("/login", isLoggedOut, (req, res) => {
-  console.log(9)
   res.render("auth/login");
 });
 
 router.post("/login", isLoggedOut, (req, res, next) => {
   const { userName, passwordHash } = req.body;
-  console.log(10)
-
   if (!userName) {
     return res.status(400).render("auth/login", {
       errorMessage: "Please provide your userName.",
@@ -151,9 +140,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 });
 
 router.get("/logout", isLoggedIn, (req, res) => {
-  console.log(11)
   req.session.destroy((err) => {
-  console.log(12)
     if (err) {
       return res
         .status(500)
