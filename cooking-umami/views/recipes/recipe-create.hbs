@@ -5,8 +5,53 @@
     Title:
     <input type="text" name="title" />
   </label>
-
+  <br>
   <label>
+    Difficulty Level:
+  <br>
+    <form>
+     <input type="radio" id="kids" name="level" value="kids">
+        <label for="kids">Kids</label><br>
+     <input type="radio" id="papa" name="level" value="papa">
+        <label for="Papa">Papa</label><br>
+     <input type="radio" id="mapa" name="level" value="mama">
+        <label for="Mama">Mama</label>
+     </form>
+   </label><br>
+ <label>
+    Description:
+    <textarea name="description" cols="30" rows="4"> </textarea>
+  </label> <br>
+   <label>
+    Ingredients
+     <textarea name="description" cols="30" rows="4"> </textarea>
+  </label> <br>
+  <label>
+     Instructions:
+      <textarea name="isntructions" cols="30" rows="4"> </textarea>
+    </label> <br>
+  <label> Dish type:<br>
+    <form>
+     <input type="checkbox" id="breakfast" name="dish-type" value="breakfast">
+        <label for="breakfast">Breakfast</label>
+    <input type="checkbox" id="lunch" name="dish-type" value="lunch">
+        <label for="lunch">Lunch</label><br>
+     <input type="checkbox" id="dinner" name="dish-type" value="dinner">
+        <label for="dinner">Dinner</label>
+     <input type="checkbox" id="dessert" name="dish-type" value="dessert">
+        <label for="dessert">Dessert</label><br>
+     <input type="checkbox" id="drink" name="dish-type" value="drink">
+        <label for="drink">Drink</label>
+     <input type="checkbox" id="othera" name="dish-type" value="other">
+        <label for="other">Other</label>
+     </form>
+   </label>
+<form action="/action_page.php" method="get">
+  <label for="dutayion">Duration: Short (15+ min) 
+  <input type="range" id="vol" name="vol" min="0" max="120">
+   Long (2h+)
+</form><br>
+   <label>
     User:
     {{!-- <select name="user">
 
@@ -14,18 +59,15 @@
         <option value="{{this._id}}">{{this.name}}</option>
       {{/each}}
     </select> --}}
-    <input type="text" name="userName" />
+    <input type="text" name="userName"/>
   </label>
-
-  <label>
-    Description:
-    <textarea name="description" cols="30" rows="4"> </textarea>
-  </label>
-
-  <label>
+   <form action="/action_page.php">
+        <label for="img">Upload image of dish:</label>
+            <input type="file" id="img" name="img" accept="image/*">
+    </form>
+  {{!-- <label>
     Rate:
     <input type="number" name="rating" min="1" max="10" />
-  </label>
-
+ </label><br> --}}
   <button type="submit"> Create </button>
 </form>
