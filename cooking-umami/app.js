@@ -28,8 +28,9 @@ const index = require("./routes/index.routes");
 app.use("/", index);
 
 const authRoutes = require("./routes/auth.routes");
-app.use("/auth", authRoutes);
-
+app.use("/", authRoutes);
+const recipeRoutes = require("./routes/recipe.routes");
+app.use("/", recipeRoutes);
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
