@@ -1,14 +1,27 @@
-<form action="/register" method="POST">
-   <label> Username
-      <input type="text" name="userName">
-   </label>
-   <label> Password
-      <input type="password" name="passwordHash">
-   </label>
+<h1>Register</h1>
 
-   <button type="submit">Submit</button>
+<form action="/register" method="POST">
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Username</label>
+    <input
+      type="userName"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="Your Username"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Password</label>
+    <input
+      type="userName"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="Your Password"
+    />
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
 </form>
 
 {{#if errorMessage}}
-   {{errorMessage}}
+  {{errorMessage}}
 {{/if}}
