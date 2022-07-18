@@ -53,7 +53,7 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 });
 
 // READ: recipe details
-router.get("/:recipeId", (req, res, next) => {
+router.get("/recipes/:recipeId", (req, res, next) => {
   const recipeId = req.params.recipeId;
 
   Recipe.findById(recipeId)
@@ -68,7 +68,7 @@ router.get("/:recipeId", (req, res, next) => {
 });
 
 // UPDATE: Render form
-router.get("/:recipeId/edit", isLoggedIn, (req, res, next) => {
+router.get("/recipes/:recipeId/edit", (req, res, next) => {
   const { recipeId } = req.params;
 
   Recipe.findById(recipeId)
@@ -82,12 +82,12 @@ router.get("/:recipeId/edit", isLoggedIn, (req, res, next) => {
 });
 
 // UPDATE: Process form
-router.post("/:recipeId/edit", isLoggedIn, (req, res, next) => {
+router.post("/recipes/:recipeId/edit", (req, res, next) => {
   const recipeId = req.params.recipeId;
 
   const newDetails = {
     title: req.body.title,
-    user: req.body.user,
+    userName: req.body.userName,
     description: req.body.description,
     rating: req.body.rating,
   };
