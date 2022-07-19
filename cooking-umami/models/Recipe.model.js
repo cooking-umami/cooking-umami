@@ -20,22 +20,21 @@ const recipeSchema = new Schema({
     type: String,
     enum: ["Kids", "Papa", "Mama"],
   },
-  ingredients: [String],  //
+  ingredients: String,  //
   description: String,
-  instructions: [String],  //
-  cuisine: {
-    type: String,
-    enum: ["Italian", "French", "English", "Chinese", "German", "Russian", "American", "Other"],
-  },
+  instructions: String,  //
+  // cuisine: {
+  //   type: String,
+  //   enum: ["Italian", "French", "English", "Chinese", "German", "Russian", "American", "Other"],
+  // },
   dishType: {
     type: String,
     enum: [
       "breakfast",
-      "main-course",
-      "soup",
-      "snack",
-      "drink",
+      "lunch",
+      "dinner",
       "dessert",
+      "drink",
       "other",
     ],
   },
@@ -44,8 +43,8 @@ const recipeSchema = new Schema({
     default: "https://images.media-allrecipes.com/images/75131.jpg", //
   },
   duration: {
-    type: String,
-    enum: ["Quick (10 min - 30 min)", "Medium (30 min - 1 hour)", "Long (1 hour+)"]
+    type: Number,
+    //enum: ["Quick (10 min - 30 min)", "Medium (30 min - 1 hour)", "Long (1 hour+)"]
   },
   creator: {type: Schema.Types.ObjectId, ref: 'User'},
   rating: { 

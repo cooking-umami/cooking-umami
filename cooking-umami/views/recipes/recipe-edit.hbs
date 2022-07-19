@@ -1,27 +1,94 @@
-<h2>Edit the recipe: {{title}}</h2>
-
 <form action="/recipes/{{_id}}/edit" method="POST">
-  <label>
-    Title:
-    <input type="text" name="title" value="{{title}}" />
-  </label>
 
-  <label>
-    User:
-    <input type="text" name="user" value="{{user}}" />
-  </label>
 
-  <label>
-    Description:
-    <textarea name="description" cols="30" rows="4">
-      {{description}}
-    </textarea>
-  </label>
+
+
+
 
   <label>
     Rating:
     <input type="number" name="rating" min="1" max="10" value="{{rating}}" />
   </label>
 
-  <button class="btn btn-primary">Save changes</button>
+  <button>Save changes</button>
+</form>
+
+<h2>Edit the recipe: {{title}}</h2>
+
+<form action="/create" method="POST">
+  <label>
+    Title:
+    <input type="text" name="title" value="{{title}}" />
+  </label>
+  <br>
+    <label>
+    User:
+    <input type="text" name="user" value="{{user}}" />
+  </label>
+  <label>
+    Difficulty Level:
+  <br>
+    <form>
+     <input type="radio" id="kids" name="level" value="kids">
+        <label for="kids">Kids</label><br>
+     <input type="radio" id="papa" name="level" value="papa">
+        <label for="Papa">Papa</label><br>
+     <input type="radio" id="mapa" name="level" value="mama">
+        <label for="Mama">Mama</label>
+     </form>
+   </label><br>
+  <label>
+    Description:
+    <textarea name="description" cols="30" rows="4">
+      {{description}}
+    </textarea>
+  </label>
+    Ingredients
+     <textarea name="description" cols="30" rows="4"> </textarea>
+       {{ingredients}}
+  </label> <br>
+  <label>
+     Instructions:
+      <textarea name="isntructions" cols="30" rows="4"> </textarea>
+        {{instructions}}
+    </label> <br>
+  <label> Dish type:<br>
+    <form>
+     <input type="checkbox" id="breakfast" name="dish-type" value="breakfast">
+        <label for="breakfast">Breakfast</label>
+    <input type="checkbox" id="lunch" name="dish-type" value="lunch">
+        <label for="lunch">Lunch</label><br>
+     <input type="checkbox" id="dinner" name="dish-type" value="dinner">
+        <label for="dinner">Dinner</label>
+     <input type="checkbox" id="dessert" name="dish-type" value="dessert">
+        <label for="dessert">Dessert</label><br>
+     <input type="checkbox" id="drink" name="dish-type" value="drink">
+        <label for="drink">Drink</label>
+     <input type="checkbox" id="othera" name="dish-type" value="other">
+        <label for="other">Other</label>
+          {{dish-type}}
+     </form>
+   </label>
+  <label for="duration"><p>Duration: Short (15+ min)
+  <input type="range" id="vol" name="vol" min="0" max="120">
+   Long (2h+)
+</form><br>
+   <label>
+    User:
+    {{!-- <select name="user">
+      {{#each usersArr}}
+        <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+    </select> --}}
+    <input type="text" name="userName"/>
+  </label>
+   <form action="/action_page.php">
+        <label for="img">Upload image of dish:</label>
+            <input type="file" id="img" name="img" accept="image/*">
+    </form>
+  <label>
+    Rate:
+    <input type="number" name="rating" min="1" max="10" />
+ </label>
+   <button class="btn btn-primary">Save changes</button>
 </form>
