@@ -37,9 +37,14 @@ router.get("/create", isLoggedIn, (req, res, next) => {
 router.post("/create", isLoggedIn, (req, res, next) => {
   const recipeDetails = {
     title: req.body.title,
-    user: req.body.user,
+    difficulty: req.body.difficulty,
+    ingredients: req.body.ingredients,
     description: req.body.description,
-    rating: req.body.rating,
+    instructrions: req.body.instructrions,
+    dishType: req.body.dishType,
+    image: req.body.image,
+    duration: req.body.duration,
+    creator: req.body.creator,
   };
 
   Recipe.create(recipeDetails)
@@ -87,9 +92,16 @@ router.post("/recipes/:recipeId/edit", (req, res, next) => {
 
   const newDetails = {
     title: req.body.title,
-    userName: req.body.userName,
+    difficulty: req.body.difficulty,
+    ingredients: req.body.ingredients,
     description: req.body.description,
+    instructions: req.body.instructions,
+    dishType: req.body.dishType,
+    image: req.body.image,
+    duration: req.body.duration,
+    creator: req.body.creator,
     rating: req.body.rating,
+    review: req.body.review,
   };
 
   Recipe.findByIdAndUpdate(recipeId, newDetails)

@@ -16,26 +16,22 @@ const recipeSchema = new Schema({
     type: String,
     required: true,
   },
-  level: {
-    type: String,
-    enum: ["Kids", "Papa", "Mama"],
+  difficulty: {
+    type: [String],
+    enum: ["kids", "papa", "mama"],
   },
-  ingredients: String,  //
+  ingredients: String,
   description: String,
-  instructions: String,  //
-  // cuisine: {
-  //   type: String,
-  //   enum: ["Italian", "French", "English", "Chinese", "German", "Russian", "American", "Other"],
-  // },
+  instructions: String, 
   dishType: {
-    type: String,
+    type: [String],
     enum: [
       "breakfast",
       "lunch",
       "dinner",
       "dessert",
+      "snack",
       "drink",
-      "other",
     ],
   },
   image: {
@@ -44,7 +40,6 @@ const recipeSchema = new Schema({
   },
   duration: {
     type: Number,
-    //enum: ["Quick (10 min - 30 min)", "Medium (30 min - 1 hour)", "Long (1 hour+)"]
   },
   creator: {type: Schema.Types.ObjectId, ref: 'User'},
   rating: { 
@@ -52,9 +47,7 @@ const recipeSchema = new Schema({
     enum: [1, 2, 3, 4, 5],
   },
   review: [String],
-
   // reviews: [reviewSchema]
-
 },
 {
     timestamps: true,

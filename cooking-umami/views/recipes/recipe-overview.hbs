@@ -1,11 +1,12 @@
 <h1 class="text-center">List of recipes in our database</h1>
 
-<div class="row text-center justify-content-center align-items-center">
-<div class="gap">
+<div class="text-center justify-content-center align-items-center">
+<div class="this isthebutton m-5">
 <a class="btn btn-primary text-center" href="/create">Create a new recipe</a>
 </div>
+<div class="row justify-content-center align-items-center">
 {{#each recipesArr}}
-<div class="card product col-12 col-md-4" style="width: 18rem;">
+<div class="card product col-12 col-md-2 m-2" style="width: 18rem;">
   <a href="/recipes/{{this._id}}">
   <img src="{{this.image}}" class="card-img-top" alt="..." />
   </a>
@@ -23,5 +24,6 @@
   </div>
 </div>
 {{/each}}
+</div>
 </div>
 </div>

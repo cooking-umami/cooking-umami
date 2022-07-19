@@ -8,7 +8,7 @@ html {
   margin: 0;
   padding: 0;
   height: 100%;
-  background: #60a3bc !important;
+  background: #f36ba3 !important;
 }
 
 .user_card {
@@ -16,7 +16,7 @@ html {
   width: 350px;
   margin-top: auto;
   margin-bottom: auto;
-  background: #f39c12;
+  background: #ffbd0d;
   position: relative;
   display: flex;
   justify-content: center;
@@ -35,7 +35,7 @@ html {
   width: 170px;
   top: -75px;
   border-radius: 50%;
-  background: #60a3bc;
+  background: #ffffff;
   padding: 10px;
   text-align: center;
 }
