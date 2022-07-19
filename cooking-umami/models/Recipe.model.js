@@ -22,7 +22,7 @@ const recipeSchema = new Schema({
   },
   ingredients: String,
   description: String,
-  instructions: String, 
+  instructions: String,
   dishType: {
     type: [String],
     enum: [
