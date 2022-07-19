@@ -37,4 +37,3 @@ app.use("/", require("./routes/about.routes"));
 require("./error-handling")(app);
 
 module.exports = app;
-
