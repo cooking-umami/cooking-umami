@@ -119,16 +119,18 @@ router.post("/login", isLoggedOut, (req, res, next) => {
       }
 
       // If user is found based on the userName, check if the in putted passwordHash matches the one saved in the database
-      bcrypt.compare(passwordHash, user.passwordHash).then((isSamePasswordHash) => {
-        if (!isSamePasswordHash) {
-          return res.status(400).render("auth/login", {
-            errorMessage: "Wrong credentials.",
-          });
-        }
-        req.session.user = user;
-        // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
-        return res.redirect("/");
-      });
+      bcrypt
+        .compare(passwordHash, user.passwordHash)
+        .then((isSamePasswordHash) => {
+          if (!isSamePasswordHash) {
+            return res.status(400).render("auth/login", {
+              errorMessage: "Wrong credentials.",
+            });
+          }
+          req.session.user = user;
+          // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
+          return res.redirect("/");
+        });
     })
 
     .catch((err) => {
@@ -139,13 +141,9 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     });
 });
 
-router.get("/logout", isLoggedIn, (req, res) => {
+router.post("/logout", isLoggedIn, (req, res, next) => {
   req.session.destroy((err) => {
-    if (err) {
-      return res
-        .status(500)
-        .render("auth/logout", { errorMessage: err.message });
-    }
+    if (err) next(err);
     res.redirect("/");
   });
 });

@@ -1,14 +1,82 @@
-<form action="/register" method="POST">
-   <label> Username
-      <input type="text" name="userName">
-   </label>
-   <label> Password
-      <input type="password" name="passwordHash">
-   </label>
+{{! <h1>Register</h1>
 
-   <button type="submit">Submit</button>
-</form>
+<form action="/register" method="POST">
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Username</label>
+    <input
+      type="text"
+      name="userName"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="Your Username"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Password</label>
+    <input
+      type="password"
+      name="passwordHash"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="Your Password"
+    />
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form> }}
+
+<div class="container h-100">
+  <div class="d-flex justify-content-center h-100">
+    <div class="user_card">
+      <div class="d-flex justify-content-center">
+        <div class="brand_logo_container">
+          {{! <h1>Login</h1> }}
+          <img
+            src="./images/cooking-mama-logo.png"
+            class="brand_logo"
+            alt="Logo"
+          />
+        </div>
+      </div>
+      <div class="d-flex justify-content-center form_container">
+        <form action="/register" method="POST">
+          <div class="input-group mb-3">
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input
+              type="text"
+              name="userName"
+              class="form-control input_user"
+              placeholder="username"
+            />
+          </div>
+          <div class="input-group mb-2">
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <input
+              type="password"
+              name="passwordHash"
+              class="form-control input_pass"
+              placeholder="password"
+            />
+          </div>
+          <div class="d-flex justify-content-center mt-3 login_container">
+            <button type="submit" class="btn login_btn">Register</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="mt-4">
+        <div class="d-flex justify-content-center links">
+          Already have an account?
+          <a href="/login" class="ml-2">Log in!</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 {{#if errorMessage}}
-   {{errorMessage}}
+  {{errorMessage}}
 {{/if}}
