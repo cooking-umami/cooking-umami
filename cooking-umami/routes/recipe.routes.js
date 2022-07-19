@@ -40,11 +40,11 @@ router.post("/create", isLoggedIn, (req, res, next) => {
     difficulty: req.body.difficulty,
     ingredients: req.body.ingredients,
     description: req.body.description,
-    instructrions: req.body.instructrions,
+    instructions: req.body.instructions,
     dishType: req.body.dishType,
     image: req.body.image,
     duration: req.body.duration,
-    creator: req.body.creator,
+    creator: req.body.creator.userName,
   };
 
   Recipe.create(recipeDetails)
@@ -99,7 +99,7 @@ router.post("/recipes/:recipeId/edit", (req, res, next) => {
     dishType: req.body.dishType,
     image: req.body.image,
     duration: req.body.duration,
-    creator: req.body.creator,
+    creator: req.body.creator.userName,
     rating: req.body.rating,
     review: req.body.review,
   };
