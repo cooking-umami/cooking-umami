@@ -5,39 +5,39 @@
   <label>
     Title:
     <input type="text" name="title" value="{{title}}" />
-  </label>
-  <br>
-    <label>
+  </label><br>
+
+  {{!-- <label>
     User:
-    <input type="text" name="user" value="{{user}}" />
-  </label>
+    <input type="text" name="userName" value="{{creator.userName}}" />
+  </label><br> --}}
+
   <label>
-    Difficulty:
-  <br>
+    Current Difficulty: {{difficulty}} <br>
      <input type="radio" id="kids" name="difficulty" value="kids">
         <label for="kids">Kids</label><br>
      <input type="radio" id="papa" name="difficulty" value="papa">
         <label for="Papa">Papa</label><br>
      <input type="radio" id="mapa" name="difficulty" value="mama">
         <label for="Mama">Mama</label>
-        {{difficulty.value}}
    </label><br>
+
   <label>
     Description:
-    <textarea name="description" cols="30" rows="4">
-      {{description}}
-    </textarea>
-  </label>
+    <textarea name="description" cols="30" rows="4">{{description}}</textarea>
+  </label><br>
+
+  <label>
     Ingredients
-     <textarea name="ingredients" cols="30" rows="4"> </textarea>
-       {{ingredients}}
+     <textarea name="ingredients" cols="30" rows="4">{{ingredients}}</textarea>
   </label> <br>
+
   <label>
      Instructions:
-      <textarea name="instructions" cols="30" rows="4"> </textarea>
-        {{instructions}}
-    </label> <br>
-  <label> Dish type:<br>
+      <textarea name="instructions" cols="30" rows="4">{{instructions}}</textarea>     
+    </label><br>
+
+  <label>Current Dish Type: {{dishType}}<br>
      <input type="checkbox" id="breakfast" name="dishType" value="breakfast">
         <label for="breakfast">Breakfast</label>
     <input type="checkbox" id="lunch" name="dishType" value="lunch">
@@ -50,33 +50,28 @@
         <label for="drink">Drink</label>
      <input type="checkbox" id="othera" name="dishType" value="other">
         <label for="other">Other</label>
-          {{dishType}}
-   </label>
-  <label for="duration"><p>Duration: Short (15+ min)
+   </label><br>
+
+  <label>Current Duration: {{duration}} min <br> Short (15+ min)
   <input type="range" id="duration" name="duration" min="0" max="120">
-   Long (2h+)<br>
-   <label>
-    User:
+   Long (2h+)
+  </label><br>
+   
+ <label>Upload image of dish:
+     <input type="file" id="img" name="img" accept="image/*">
+ </label><br>
+
+  <label>
+    Rating:
+    <input type="number" name="rating" min="1" max="10" value="{{rating}}" />
+  </label><br>
+
+  <button class="btn btn-primary">Save changes</button>
+</form>
+
+<script src="/routes/recipe.routes.js"></script>
     {{!-- <select name="user">
       {{#each usersArr}}
         <option value="{{this._id}}">{{this.name}}</option>
       {{/each}}
     </select> --}}
-    <input type="text" name="userName"/>
-  </label>
-        <label for="img">Upload image of dish:</label>
-            <input type="file" id="img" name="img" accept="image/*">
-  <label>
-    Rate:
-    <input type="number" name="rating" min="1" max="10" />
- </label>
-
-
-
-  <label>
-    Rating:
-    <input type="number" name="rating" min="1" max="10" value="{{rating}}" />
-  </label>
-
-  <button class="btn btn-primary">Save changes</button>
-</form>

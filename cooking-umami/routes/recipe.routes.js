@@ -40,13 +40,13 @@ router.post("/create", isLoggedIn, (req, res, next) => {
     difficulty: req.body.difficulty,
     ingredients: req.body.ingredients,
     description: req.body.description,
-    instructrions: req.body.instructrions,
+    instructions: req.body.instructions,
     dishType: req.body.dishType,
     image: req.body.image,
     duration: req.body.duration,
-    creator: req.body.creator,
+    creator: req.session.user._id
   };
-
+  console.log(req.body.description)
   Recipe.create(recipeDetails)
     .then(() => {
       res.redirect("/recipes");
@@ -78,7 +78,10 @@ router.get("/recipes/:recipeId/edit", (req, res, next) => {
 
   Recipe.findById(recipeId)
     .then((recipeDetails) => {
+      console.log(recipeDetails)
+      console.log("hello");
       res.render("recipes/recipe-edit", recipeDetails);
+      //document.getElementById(recipeDetails.difficulty).setAttribute("checked", "checked")  
     })
     .catch((error) => {
       console.log("Error getting recipe details from DB", error);
