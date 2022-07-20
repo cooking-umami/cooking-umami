@@ -35,6 +35,12 @@ p {
   text-shadow: black 4px 3px 2px;
 }
 
+/* Custom Carousel Styling */
+
+.custom-carousel-width {
+  width: 70vw;
+}
+
 /* Login Styles Start */
 
 .user_card {

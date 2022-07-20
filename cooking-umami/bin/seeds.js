@@ -33,6 +33,7 @@ const recipes = [
   {
     title: "Garlic Shrimp",
     ingredients: "Shrimp, Red Chili, Salt",
+    difficulty: "mama",
     description:
       "A classic local Hawaiian dish consisting of shrimp pan-fried with plenty of garlic and butter, it's a very popular item amongst Hawaiian food trucks.",
     instructions:
@@ -47,6 +48,7 @@ const recipes = [
   {
     title: "Lasagna",
     ingredients: "Pork, Garlic, Onion",
+    difficulty: "papa",
     description:
       "A pasta dish known for its layers of meat, cheese, and sauce. Lasagna is also used to refer to the wide, flat pasta used in the dish.",
     instructions: "1. Cut the Ingredients! 2. Stir Fry it! 3. Stir it!",
@@ -64,6 +66,7 @@ const recipes = [
     instructions: "1. make some popcorn! 2. Add some seasoning!",
     dishType: "snack",
     image: "/images/popcorn.webp",
+    difficulty: "kids",
     duration: 15,
     creator: "",
     rating: 4,
