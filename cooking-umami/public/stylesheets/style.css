@@ -41,6 +41,15 @@ p {
   width: 70vw;
 }
 
+.card {
+  max-width: 500px;
+  margin: 80px auto;
+}
+
+.card-group img {
+  max-height: 400px;
+}
+
 /* Login Styles Start */
 
 .user_card {
