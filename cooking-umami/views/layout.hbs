@@ -62,22 +62,25 @@
             <li class="nav-item">
               <a class="nav-link p-3" href="/recipes">Recipes</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link p-3" href="/login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link p-3" href="/register">Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link p-3" href="/users">User Profile</a>
-            </li>
-            <li class="nav-item">
-              <form id="logout-form" action="/logout" method="POST">
-                <button
-                  class="btn btn-danger align-items-center mt-2 ms-2"
-                >Logout</button>
-              </form>
-            </li>
+            {{#if session.user}}
+              <li class="nav-item">
+                <a class="nav-link p-3" href="/users">User Profile</a>
+              </li>
+              <li class="nav-item">
+                <form id="logout-form" action="/logout" method="POST">
+                  <button
+                    class="btn btn-danger align-items-center mt-2 ms-2"
+                  >Logout</button>
+                </form>
+              </li>
+            {{else}}
+              <li class="nav-item">
+                <a class="nav-link p-3" href="/login">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link p-3" href="/register">Register</a>
+              </li>
+            {{/if}}
           </ul>
         </div>
         {{! <form class="d-flex" role="search">
