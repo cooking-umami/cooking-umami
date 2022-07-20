@@ -17,14 +17,15 @@ const recipeSchema = new Schema({
     required: true,
   },
   difficulty: {
-    type: [String],
+    type: String,
     enum: ["kids", "papa", "mama"],
+    default: "kids"
   },
   ingredients: String,
   description: String,
   instructions: String, 
   dishType: {
-    type: [String],
+    type: String,
     enum: [
       "breakfast",
       "lunch",
@@ -33,6 +34,7 @@ const recipeSchema = new Schema({
       "snack",
       "drink",
     ],
+    default:"dinner"
   },
   image: {
     type: String,
@@ -45,6 +47,7 @@ const recipeSchema = new Schema({
   rating: { 
     type: [Number],
     enum: [1, 2, 3, 4, 5],
+    default: 5
   },
   review: [String],
   // reviews: [reviewSchema]
