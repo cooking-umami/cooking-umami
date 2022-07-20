@@ -116,3 +116,20 @@ p {
 }
 
 /* Login Styles End */
+
+@media (max-width: 1000px) {
+
+  h1,
+  h2,
+  h5 {
+    color: #ffbd0d;
+    font-size: 2rem;
+    text-shadow: black 4px 3px 2px;
+  }
+
+  p {
+    color: #ffbd0d;
+    font-size: 1rem;
+    text-shadow: black 4px 3px 2px;
+  }
+}
