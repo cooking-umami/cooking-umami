@@ -149,10 +149,14 @@ p {
 /* Recipe Create End */
 
 /* Recipe Details Start */
-.recipe-details {
-  color: black
- }
-
+ .recipe-details {
+  background-color: #ffffff5d;
+  color: black !important;
+  text-shadow: none !important;
+}
+.recipe-info {
+  background-color: rgba(255, 255, 255, 0.823);
+}
 
 /* Recipe Details End */
 
@@ -161,7 +165,7 @@ p {
   h1,
   h2,
   h5 {
-    color: #ffbd0d;
+    color: black
     font-size: 2rem;
     text-shadow: black 4px 3px 2px;
   }
