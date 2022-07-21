@@ -4,6 +4,9 @@ const User = require("../models/User.model");
 const router = require("express").Router();
 
 const isLoggedIn = require("../middleware/isLoggedIn");
+const isLoggedOut = require("../middleware/isLoggedOut");
+
+const fileUploader = require("../config/cloudinary.config");
 
 // READ: List all recipes
 router.get("/recipes", (req, res, next) => {
@@ -34,28 +37,33 @@ router.get("/create", isLoggedIn, (req, res, next) => {
 });
 
 // CREATE: Process form
-router.post("/create", isLoggedIn, (req, res, next) => {
-  const recipeDetails = {
-    title: req.body.title,
-    difficulty: req.body.difficulty,
-    ingredients: req.body.ingredients,
-    description: req.body.description,
-    instructions: req.body.instructions,
-    dishType: req.body.dishType,
-    image: req.body.image,
-    duration: req.body.duration,
-    creator: req.session.user._id,
-  };
-  console.log(req.body.description);
-  Recipe.create(recipeDetails)
-    .then(() => {
-      res.redirect("/recipes");
-    })
-    .catch((error) => {
-      console.log("Error creating recipe in the DB", error);
-      next(error);
-    });
-});
+router.post(
+  "/create",
+  isLoggedIn,
+  fileUploader.single("image"),
+  (req, res, next) => {
+    const recipeDetails = {
+      title: req.body.title,
+      difficulty: req.body.difficulty,
+      ingredients: req.body.ingredients,
+      description: req.body.description,
+      instructions: req.body.instructions,
+      dishType: req.body.dishType,
+      image: req.file.path,
+      duration: req.body.duration,
+      creator: req.session.user._id,
+    };
+    console.log(req.body.description);
+    Recipe.create(recipeDetails)
+      .then(() => {
+        res.redirect("/recipes");
+      })
+      .catch((error) => {
+        console.log("Error creating recipe in the DB", error);
+        next(error);
+      });
+  }
+);
 
 // READ: recipe details
 router.get("/recipes/:recipeId", (req, res, next) => {
