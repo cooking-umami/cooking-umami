@@ -100,6 +100,7 @@ router.post(
   fileUploader.single("image"),
   (req, res, next) => {
     const recipeId = req.params.recipeId;
+    let existingImage = req.body.existingImage;
 
     const newDetails = {
       title: req.body.title,
@@ -121,7 +122,7 @@ router.post(
       image = existingImage;
     }
 
-    Recipe.findByIdAndUpdate(recipeId, newDetails)
+    Recipe.findByIdAndUpdate(recipeId, newDetails, { new: true })
       .then(() => {
         // res.redirect(`/recipes/${recipeId}`); // redirect to recipe details page
         res.redirect("/recipes");
