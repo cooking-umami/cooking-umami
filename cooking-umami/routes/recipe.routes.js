@@ -101,6 +101,7 @@ router.post(
   (req, res, next) => {
     const recipeId = req.params.recipeId;
     let existingImage = req.body.existingImage;
+    let image;
 
     const newDetails = {
       title: req.body.title,
@@ -109,12 +110,13 @@ router.post(
       description: req.body.description,
       instructions: req.body.instructions,
       dishType: req.body.dishType,
-      image: req.file.path,
+      image: image,
       duration: req.body.duration,
       creator: req.body.creator,
       rating: req.body.rating,
       review: req.body.review,
     };
+
     if (req.file) {
       image = req.file.path;
     } else {
