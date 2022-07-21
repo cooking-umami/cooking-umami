@@ -47,7 +47,12 @@ p {
 }
 
 .card-group img {
-  max-height: 400px;
+  max-height: 200px;
+}
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
 }
 
 /* Login Styles Start */
@@ -126,6 +131,15 @@ p {
 
 /* Login Styles End */
 
+/* Recipe Create & Edit Start */
+
+.recipe-forms {
+  font-size: larger;
+  font-weight: bolder;
+}
+
+/* Recipe Create & Edit End */
+
 /* Recipe Create Start */
 
 #duration {
@@ -133,12 +147,25 @@ p {
 }
 
 /* Recipe Create End */
+
+/* Recipe Details Start */
+ .recipe-details {
+  background-color: #ffffff5d;
+  color: black !important;
+  text-shadow: none !important;
+}
+.recipe-info {
+  background-color: rgba(255, 255, 255, 0.823);
+}
+
+/* Recipe Details End */
+
 @media (max-width: 1000px) {
 
   h1,
   h2,
   h5 {
-    color: #ffbd0d;
+    color: black
     font-size: 2rem;
     text-shadow: black 4px 3px 2px;
   }

@@ -15,7 +15,7 @@
 {{#each recipesArr}}
 <div class="card product col-12 col-md-2 m-2" style="width: 24rem;">
   <a href="/recipes/{{this._id}}">
-  <img src="{{this.image}}" class="card-img-top" alt="..." />
+  <img src="{{this.image}}" class="card-img-top embed-responsive-item" alt="{{this.title}}" />
   </a>
   <div class="card-body">
     <h5 class="card-title">{{this.title}}</h5>
@@ -23,10 +23,18 @@
       by: {{this.creator.userName}}
     </p>
     {{#if isUserLoggedIn}}
-    <a class="btn btn-primary" href="/recipes/{{this._id}}">More details</a>
-    <a class="btn btn-primary" href="/recipes/{{this._id}}/edit">Edit</a>
+    <div class="row">
+    <div class="col">
+       <a class="btn btn-primary"  href="/recipes/{{this._id}}">Details</a>
+    </div>
+    <div class="col">
+   <a class="btn btn-primary" href="/recipes/{{this._id}}/edit">Edit</a>
+   </div>
+    <div class="col">
     <form action="/recipes/{{this._id}}/delete" method="POST">
     <button class="btn btn-danger">Delete</button>
+    </div>
+    </div>
     </form>
     {{else}}
     <a class="btn btn-primary" href="/recipes/{{this._id}}">More details</a>

@@ -1,14 +1,19 @@
-<section class="recipe-details container">
+<section class="recipe-details container rounded">
+  
   <h2>{{title}}</h2>
-   <img src="{{image}}" alt="photo of dish"> 
-  <p>
-    User:
+   <img src="{{image}}" alt="{{title}}" class="img-fluid rounded mx-auto d-block"> 
+  <div class="row recipe-info rounded">
+  <div class="col"><p>
+    Created by:
     {{creator.userName}}
     <br />
-    Rating:
-    {{rating}}
-    <br/>
   </p>
+  <p>
+    <strong>Duration:</strong>
+    {{duration}} minutes
+  </p>
+  </div>
+  <div class="col">
   <p>
     <strong>Difficulty:</strong>
     {{difficulty}}
@@ -17,31 +22,38 @@
     <strong>Dish Type:</strong>
     {{dishType}}
   </p>
-
+  </div>
+  </div>
+  <div class="row">
   <p>
     <strong>Description:</strong>
     {{description}}
   </p>
-  <p>
-    <strong>Ingredients:</strong>
-    {{ingredients}}
-  </p>
+  <div class="col-8">
 
    <p>
     <strong>Instructions:</strong>
     {{instructions}}
   </p>
+  </div>
+  <div class="col-4 recipe-info rounded">
   <p>
-    <strong>Duration:</strong>
-    {{duration}} minutes
+    <strong>Ingredients:</strong>
+    {{ingredients}}
   </p>
-  <p>
+  </div>
+  </div>
 
-  </p>
-
-
-
-
+  <div class="row pt-2">
+    <div class="col-4 text-center">
+       <a class="btn btn-primary" href="/recipes">Back</a>
+    </div>
+    <div class="col-4 text-center">
+   <a class="btn btn-primary" href="/recipes/{{this._id}}/edit">Edit</a>
+   </div>
+    <div class="col-4 text-center">
+    <form action="/recipes/{{this._id}}/delete" method="POST">
+    <button class="btn btn-danger">Delete</button>
+    </div>
+  </div>
 </section>
-
-<a href="/recipes">Back</a>
