@@ -115,7 +115,6 @@ router.post(
       rating: req.body.rating,
       review: req.body.review,
     };
-    let image;
     if (req.file) {
       image = req.file.path;
     } else {
