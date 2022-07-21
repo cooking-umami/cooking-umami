@@ -13,10 +13,12 @@ router.get("/recipes", (req, res, next) => {
   Recipe.find()
     .populate("creator")
     .then((recipesFromDB) => {
-      const data = {
+      if (req.session.user !== undefined) {
+        recipesFromDB.forEach((recipe) => (recipe.isUserLoggedIn = true));
+      }
+      res.render("recipes/recipe-overview", {
         recipesArr: recipesFromDB,
-      };
-      res.render("recipes/recipe-overview", data);
+      });
     })
     .catch((error) => {
       console.log("Error getting data from DB", error);

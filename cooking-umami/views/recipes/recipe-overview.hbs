@@ -15,12 +15,15 @@
     <p class="card-text">
       by: {{this.creator.userName}}
     </p>
+    {{#if isUserLoggedIn}}
     <a class="btn btn-primary" href="/recipes/{{this._id}}">More details</a>
     <a class="btn btn-primary" href="/recipes/{{this._id}}/edit">Edit</a>
     <form action="/recipes/{{this._id}}/delete" method="POST">
     <button class="btn btn-danger">Delete</button>
     </form>
+    {{else}}
     <a class="btn btn-primary" href="/recipes/{{this._id}}">More details</a>
+    {{/if}}
   </div>
 </div>
 {{/each}}
