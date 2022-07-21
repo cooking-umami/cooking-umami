@@ -103,6 +103,12 @@ router.post(
     let existingImage = req.body.existingImage;
     let image;
 
+    if (req.file) {
+      image = req.file.path;
+    } else {
+      image = existingImage;
+    }
+
     const newDetails = {
       title: req.body.title,
       difficulty: req.body.difficulty,
@@ -116,12 +122,6 @@ router.post(
       rating: req.body.rating,
       review: req.body.review,
     };
-
-    if (req.file) {
-      image = req.file.path;
-    } else {
-      image = existingImage;
-    }
 
     Recipe.findByIdAndUpdate(recipeId, newDetails, { new: true })
       .then(() => {
