@@ -13,15 +13,14 @@
   <div class="card-body">
     <h5 class="card-title">{{this.title}}</h5>
     <p class="card-text">
-       by: {{this.creator.userName}}
-       <br>
-      rated: {{this.rating}}/5
+      by: {{this.creator.userName}}
     </p>
     <a class="btn btn-primary" href="/recipes/{{this._id}}">More details</a>
     <a class="btn btn-primary" href="/recipes/{{this._id}}/edit">Edit</a>
     <form action="/recipes/{{this._id}}/delete" method="POST">
     <button class="btn btn-danger">Delete</button>
     </form>
+    <a class="btn btn-primary" href="/recipes/{{this._id}}">More details</a>
   </div>
 </div>
 {{/each}}
