@@ -43,11 +43,16 @@
   </div>
   </div>
 
-
+  <div class="row">
+    <div class="col-4 text-center">
+       <a class="btn btn-primary" href="/recipes">Back</a>
+    </div>
+    <div class="col-4 text-center">
    <a class="btn btn-primary" href="/recipes/{{this._id}}/edit">Edit</a>
+   </div>
+    <div class="col-4 text-center">
     <form action="/recipes/{{this._id}}/delete" method="POST">
     <button class="btn btn-danger">Delete</button>
-
+    </div>
+  </div>
 </section>
-
-<a href="/recipes">Back</a>
