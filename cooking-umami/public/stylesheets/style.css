@@ -116,3 +116,11 @@ p {
 }
 
 /* Login Styles End */
+
+/* Recipe Create Start */
+
+#duration {
+  text-align: right;
+}
+
+/* Recipe Create End */

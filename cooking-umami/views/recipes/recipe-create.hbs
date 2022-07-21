@@ -1,65 +1,102 @@
-<h2>Create a recipe</h2>
 
 <form action="/create" method="POST">
-  <label>
-    Title:
-    <input type="text" name="title" />
-  </label><br>
 
-    Difficulty Level:
-  <br>
-     <input type="radio" id="kids" name="difficulty" value="kids">
-        <label for="kids">Kids</label><br>
-     <input type="radio" id="papa" name="difficulty" value="papa">
-        <label for="papa">Papa</label><br>
-     <input type="radio" id="mama" name="difficulty" value="mama">
-        <label for="mama">Mama</label>
-   </label><br>
+<div class="container">
+<h2>Create a recipe</h2>
 
- <label>
-    Description:
-    <textarea name="description" cols="30" rows="4"></textarea>
-  </label> <br>
+<div class="pb-2 mb-3 col">
+  <label class="form-label">Title</label>
+  <input type="text" class="form-control" name="title" placeholder="e.g. lasagna">
+</div>
 
-  <label>
-    Ingredients
-     <textarea name="ingredients" cols="30" rows="4"></textarea>
-  </label> <br>
+<div class="pb-2">
+<label class="form-label">Difficulty</label><br>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="difficulty" id="kids" value="kids" checked>
+  <label class="form-check-label" for="kids">Kids</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="difficulty" id="papa" value="kids">
+  <label class="form-check-label" for="papa">Papa</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="difficulty" id="mama" value="mama">
+  <label class="form-check-label" for="mama">Mama</label>
+</div><br>
+</div>
 
-  <label>
-     Instructions:
-      <textarea name="instructions" cols="30" rows="4"></textarea>
-  </label> <br>
+<div class="pb-2">
+<label class="form-label">Description</label>
+<div class="form-floating">
+  <textarea class="form-control" name="description" style="height: 100px"></textarea>
+</div>
+</div>
 
-  <label> Dish type:<br>
-     <input type="checkbox" id="breakfast" name="dishType" value="breakfast">
-        <label for="breakfast">Breakfast</label>
-    <input type="checkbox" id="lunch" name="dishType" value="lunch">
-        <label for="lunch">Lunch</label><br>
-     <input type="checkbox" id="dinner" name="dishType" value="dinner">
-        <label for="dinner">Dinner</label>
-     <input type="checkbox" id="dessert" name="dishType" value="dessert">
-        <label for="dessert">Dessert</label><br>
-     <input type="checkbox" id="snack" name="dishType" value="snack">
-        <label for="snack">Snack</label>
-     <input type="checkbox" id="drink" name="dishType" value="drink">
-        <label for="drink">Drink</label>
-   </label><br>
+<div class="pb-2">
+<label class="form-label">Ingredients</label>
+<div class="form-floating">
+  <textarea class="form-control" name="ingredients" style="height: 100px"></textarea>
+</div>
+</div>
 
-  <label for="duration">
-   Duration: Short (15± min) 
-  <input type="range" id="duration" name="duration" min="15" max="120">
-   Long (2h+)
-  </label><br>
+<div class="pb-2">
+<label class="form-label">Instructions</label>
+<div class="form-floating">
+  <textarea class="form-control" name="instructions" style="height: 100px"></textarea>
+</div>
+</div>
 
-  {{!-- </label> User:
-    <input type="text" name="userName"/>
-  </label><br> --}}
+<div class="pb-2">
+<label class="form-label">Dish Type</label><br>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" value="breakfast" name="dishType">
+  <label class="form-check-label" for="breakfast">Breakfast</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" value="lunch" name="dishType">
+  <label class="form-check-label" for="lunch">Lunch</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" value="dinner" name="dishType">
+  <label class="form-check-label" for="dinner">Dinner</label>
+</div><br>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" value="dessert" name="dishType">
+  <label class="form-check-label" for="dessert">Dessert</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" value="snack" name="dishType">
+  <label class="form-check-label" for="snack">Snack</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" value="drink" name="dishType">
+  <label class="form-check-label" for="drink">Drink</label>
+</div><br>
+</div>
+
+<div class="pb-2">
+<label for="duration" class="form-label">Duration</label>
+<input type="range" class="form-range" min="0" max="120" step="5" name="duration">
+
+<div class="container">
+   <div class="row">
+    <div class="col-6 align-self-start">Short (±15 min)</div>
+    <div id="duration" class="col-6 align-self-end">Long (2 hours+)</div>
+  </div>
+</div>
+</div>
+
+<div class="mb-3">
+  <label for="formFile" class="form-label">Upload image of dish</label>
+  <input class="form-control" type="file"  id="image" name="image" accept="image/*">
+</div>
 
 
-   <label for="img">Upload image of dish:</label>
-       <input type="file" id="image" name="image" accept="image/*">
-  </label><br>
+  <div class="d-grid d-md-flex justify-content-md-center pb-2">
+  <button class="btn btn-primary ctext mx-auto" type="submit">Create</button>
+  </div>
+  
+</div>
 
-  <button class="btn btn-primary" type="submit"> Create </button>
+  </div>
 </form>
