@@ -1,7 +1,8 @@
 <section class="recipe-details container">
+  
   <h2>{{title}}</h2>
-   <img src="{{image}}" alt="photo of dish"> 
-  <div class="row">
+   <img src="{{image}}" alt="{{title}}" class="img-fluid"> 
+  <div class="row bg-light rounded">
   <div class="col"><p>
     Created by:
     {{creator.userName}}
@@ -24,18 +25,18 @@
   </div>
   </div>
   <div class="row">
-  <div class="col-8">
   <p>
     <strong>Description:</strong>
     {{description}}
   </p>
+  <div class="col-8">
 
    <p>
     <strong>Instructions:</strong>
     {{instructions}}
   </p>
   </div>
-  <div class="col-4">
+  <div class="col-4 bg-light rounded">
   <p>
     <strong>Ingredients:</strong>
     {{ingredients}}
@@ -43,7 +44,7 @@
   </div>
   </div>
 
-  <div class="row">
+  <div class="row pt-2">
     <div class="col-4 text-center">
        <a class="btn btn-primary" href="/recipes">Back</a>
     </div>
