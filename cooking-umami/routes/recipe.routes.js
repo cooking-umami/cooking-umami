@@ -86,10 +86,7 @@ router.get("/recipes/:recipeId/edit", isLoggedIn, (req, res, next) => {
 
   Recipe.findById(recipeId)
     .then((recipeDetails) => {
-      console.log(recipeDetails);
-      console.log("hello");
       res.render("recipes/recipe-edit", recipeDetails);
-      //document.getElementById(recipeDetails.difficulty).setAttribute("checked", "checked")
     })
     .catch((error) => {
       console.log("Error getting recipe details from DB", error);
@@ -98,33 +95,43 @@ router.get("/recipes/:recipeId/edit", isLoggedIn, (req, res, next) => {
 });
 
 // UPDATE: Process form
-router.post("/recipes/:recipeId/edit", (req, res, next) => {
-  const recipeId = req.params.recipeId;
+router.post(
+  "/recipes/:recipeId/edit",
+  fileUploader.single("image"),
+  (req, res, next) => {
+    const recipeId = req.params.recipeId;
 
-  const newDetails = {
-    title: req.body.title,
-    difficulty: req.body.difficulty,
-    ingredients: req.body.ingredients,
-    description: req.body.description,
-    instructions: req.body.instructions,
-    dishType: req.body.dishType,
-    image: req.body.image,
-    duration: req.body.duration,
-    creator: req.body.creator,
-    rating: req.body.rating,
-    review: req.body.review,
-  };
+    const newDetails = {
+      title: req.body.title,
+      difficulty: req.body.difficulty,
+      ingredients: req.body.ingredients,
+      description: req.body.description,
+      instructions: req.body.instructions,
+      dishType: req.body.dishType,
+      image: req.file.path,
+      duration: req.body.duration,
+      creator: req.body.creator,
+      rating: req.body.rating,
+      review: req.body.review,
+    };
+    let image;
+    if (req.file) {
+      image = req.file.path;
+    } else {
+      image = existingImage;
+    }
 
-  Recipe.findByIdAndUpdate(recipeId, newDetails)
-    .then(() => {
-      // res.redirect(`/recipes/${recipeId}`); // redirect to recipe details page
-      res.redirect("/recipes");
-    })
-    .catch((error) => {
-      console.log("Error updating recipe in DB", error);
-      next(error);
-    });
-});
+    Recipe.findByIdAndUpdate(recipeId, newDetails)
+      .then(() => {
+        // res.redirect(`/recipes/${recipeId}`); // redirect to recipe details page
+        res.redirect("/recipes");
+      })
+      .catch((error) => {
+        console.log("Error updating recipe in DB", error);
+        next(error);
+      });
+  }
+);
 
 // DELETE: delete recipe
 router.post("/recipes/:recipeId/delete", isLoggedIn, (req, res, next) => {
