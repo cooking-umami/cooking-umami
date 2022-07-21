@@ -1,14 +1,18 @@
 <section class="recipe-details container">
   <h2>{{title}}</h2>
    <img src="{{image}}" alt="photo of dish"> 
-  <p>
-    User:
+  <div class="row">
+  <div class="col"><p>
+    Created by:
     {{creator.userName}}
     <br />
-    Rating:
-    {{rating}}
-    <br/>
   </p>
+  <p>
+    <strong>Duration:</strong>
+    {{duration}} minutes
+  </p>
+  </div>
+  <div class="col">
   <p>
     <strong>Difficulty:</strong>
     {{difficulty}}
@@ -17,30 +21,32 @@
     <strong>Dish Type:</strong>
     {{dishType}}
   </p>
-
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-8">
   <p>
     <strong>Description:</strong>
     {{description}}
-  </p>
-  <p>
-    <strong>Ingredients:</strong>
-    {{ingredients}}
   </p>
 
    <p>
     <strong>Instructions:</strong>
     {{instructions}}
   </p>
+  </div>
+  <div class="col-4">
   <p>
-    <strong>Duration:</strong>
-    {{duration}} minutes
+    <strong>Ingredients:</strong>
+    {{ingredients}}
   </p>
-  <p>
-
-  </p>
-
+  </div>
+  </div>
 
 
+   <a class="btn btn-primary" href="/recipes/{{this._id}}/edit">Edit</a>
+    <form action="/recipes/{{this._id}}/delete" method="POST">
+    <button class="btn btn-danger">Delete</button>
 
 </section>
 
