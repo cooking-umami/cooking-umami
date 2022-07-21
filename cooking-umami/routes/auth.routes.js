@@ -141,10 +141,14 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     });
 });
 
+router.get("/logout", isLoggedOut, (req, res) => {
+  res.render("auth/logout");
+});
+
 router.post("/logout", isLoggedIn, (req, res, next) => {
   req.session.destroy((err) => {
     if (err) next(err);
-    res.redirect("/");
+    res.redirect("/logout");
   });
 });
 

@@ -41,6 +41,15 @@ p {
   width: 70vw;
 }
 
+.card {
+  max-width: 500px;
+  margin: 80px auto;
+}
+
+.card-group img {
+  max-height: 400px;
+}
+
 /* Login Styles Start */
 
 .user_card {
@@ -124,3 +133,19 @@ p {
 }
 
 /* Recipe Create End */
+@media (max-width: 1000px) {
+
+  h1,
+  h2,
+  h5 {
+    color: #ffbd0d;
+    font-size: 2rem;
+    text-shadow: black 4px 3px 2px;
+  }
+
+  p {
+    color: #ffbd0d;
+    font-size: 1rem;
+    text-shadow: black 4px 3px 2px;
+  }
+}
