@@ -1,9 +1,16 @@
 <h1 class="text-center mt-4">Discover a World of UMAMI</h1>
 
+{{#if errorMessage}}  
+  <h1>{{errorMessage}}</h1>
+{{/if}}
+
+      {{#if showCreateButton}}
 <div class="text-center justify-content-center align-items-center">
 <div class="this isthebutton m-5">
 <a class="btn btn-primary text-center" href="/create">Create a new recipe</a>
 </div>
+    {{/if}}
+
 <div class="row justify-content-center align-items-center">
 {{#each recipesArr}}
 <div class="card product col-12 col-md-2 m-2" style="width: 24rem;">

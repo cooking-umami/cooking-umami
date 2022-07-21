@@ -13,12 +13,17 @@ router.get("/recipes", (req, res, next) => {
   Recipe.find()
     .populate("creator")
     .then((recipesFromDB) => {
+      let data = {
+        recipesArr: recipesFromDB,
+      };
       if (req.session.user !== undefined) {
         recipesFromDB.forEach((recipe) => (recipe.isUserLoggedIn = true));
+        data = {
+          recipesArr: recipesFromDB,
+          showCreateButton: true,
+        };
       }
-      res.render("recipes/recipe-overview", {
-        recipesArr: recipesFromDB,
-      });
+      res.render("recipes/recipe-overview", data);
     })
     .catch((error) => {
       console.log("Error getting data from DB", error);
@@ -55,7 +60,6 @@ router.post(
       duration: req.body.duration,
       creator: req.session.user._id,
     };
-    console.log(req.body.description);
     Recipe.create(recipeDetails)
       .then(() => {
         res.redirect("/recipes");

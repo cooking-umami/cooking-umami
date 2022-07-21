@@ -6,12 +6,21 @@ require("dotenv/config");
 require("./db");
 
 // Handles http requests (express is node js framework)
-// https://www.npmjs.com/package/express
+// https://www.npmjs.com/package/expressF
 const express = require("express");
 
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
+
+// custom helpers
+hbs.registerHelper("setChecked", function (value, currentValue) {
+  if (value == currentValue) {
+    return "checked";
+  } else {
+    return "";
+  }
+});
 
 const app = express();
 
