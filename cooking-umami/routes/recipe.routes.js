@@ -78,7 +78,13 @@ router.get("/recipes/:recipeId", (req, res, next) => {
   Recipe.findById(recipeId)
     .populate("creator")
     .then((recipeDetails) => {
-      res.render("recipes/recipe-details", recipeDetails);
+      console.log(recipeDetails);
+      let data = recipeDetails;
+      if (req.session.user !== undefined) {
+        recipeDetails.isUserLoggedIn = true;
+        data = recipeDetails;
+      }
+      res.render("recipes/recipe-details", data);
     })
     .catch((error) => {
       console.log("Error getting recipe details from DB", error);
