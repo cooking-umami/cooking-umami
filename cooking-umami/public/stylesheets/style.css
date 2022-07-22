@@ -24,15 +24,16 @@ html {
 h1,
 h2,
 h5 {
-  color: #ffbd0d;
+  color: black;
+  color: black;
   font-size: 3rem;
-  text-shadow: black 4px 3px 2px;
+  
 }
 
 p {
-  color: #ffbd0d;
+  color: black;
   font-size: 2rem;
-  text-shadow: black 4px 3px 2px;
+
 }
 
 /* Custom Carousel Styling */
@@ -44,11 +45,9 @@ p {
 .card {
   max-width: 500px;
   margin: 80px auto;
+  background-color: #ffffffe2;
 }
 
-.card-group img {
-  max-height: 200px;
-}
 .card-img-top {
   width: 100%;
   object-fit: cover;
@@ -65,7 +64,9 @@ p {
   }
 }
 
-
+.carousel-caption {
+  background-color: #ffffffa8;
+}
 /* Login Styles Start */
 
 .user_card {
@@ -73,7 +74,7 @@ p {
   width: 350px;
   margin-top: auto;
   margin-bottom: auto;
-  background: #ffbd0d;
+  background: black;
   position: relative;
   display: flex;
   justify-content: center;
@@ -178,12 +179,14 @@ p {
   h5 {
     color: black;
     font-size: 2rem;
-    text-shadow: black 4px 3px 2px;
   }
 
   p {
-    color: #ffbd0d;
+    color: black;
     font-size: 1rem;
-    text-shadow: black 4px 3px 2px;
   }
+}
+
+.home-page {
+  background-color: rgba(255, 182, 193, 0.811)
 }
