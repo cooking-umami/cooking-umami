@@ -21,7 +21,7 @@ const users = [
     gender: "male",
   },
   {
-    userName: "cookingmama",
+    userName: "cooking",
     passwordHash: "123",
     nationality: "Japanese",
     aboutMe: "I made this.",
