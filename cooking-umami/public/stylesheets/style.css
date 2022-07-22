@@ -35,6 +35,12 @@ p {
   text-shadow: black 4px 3px 2px;
 }
 
+.card-group p {
+  font-size: 1rem;
+  color: black;
+  text-shadow: none;
+}
+
 /* Custom Carousel Styling */
 
 .custom-carousel-width {
@@ -49,9 +55,10 @@ p {
 .card-group img {
   max-height: 200px;
 }
+
 .card-img-top {
   width: 100%;
-  height: 15vw;
+  height: 15vh;
   object-fit: cover;
 }
 
@@ -149,11 +156,12 @@ p {
 /* Recipe Create End */
 
 /* Recipe Details Start */
- .recipe-details {
+.recipe-details {
   background-color: #ffffff5d;
   color: black !important;
   text-shadow: none !important;
 }
+
 .recipe-info {
   background-color: rgba(255, 255, 255, 0.823);
 }
@@ -165,7 +173,7 @@ p {
   h1,
   h2,
   h5 {
-    color: black
+    color: black;
     font-size: 2rem;
     text-shadow: black 4px 3px 2px;
   }
