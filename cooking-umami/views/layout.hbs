@@ -57,15 +57,9 @@
               <a class="nav-link p-3" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-3" href="/about">About</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link p-3" href="/recipes">Recipes</a>
             </li>
             {{#if session.user}}
-              <li class="nav-item">
-                <a class="nav-link p-3" href="/users">User Profile</a>
-              </li>
               <li class="nav-item">
                 <form id="logout-form" action="/logout" method="POST">
                   <button
@@ -83,16 +77,6 @@
             {{/if}}
           </ul>
         </div>
-        {{! <form class="d-flex" role="search">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form> }}
-      </div>
     </nav>
 
     <!-- Optional JavaScript -->

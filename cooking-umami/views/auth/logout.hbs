@@ -1,6 +1,156 @@
-{{! this file is only shown whenever there is an error during log out }}
-{{#if errorMessage}}
-  {{errorMessage}}
-{{/if}}
+<p class="text-center pt-3">You just logged out!</p>
+<h1 class="text-center m-4">Your Daily Dose of UMAMI</h1>
 
-<h1>You are logged out!</h1>
+<div
+  id="carouselExampleCaptions"
+  class="carousel slide mt-5"
+  data-bs-ride="carousel"
+  data-bs-interval="4000"
+>
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+  <div class="carousel-inner">
+    <div
+      class="carousel-item text-center justify-content-center align-items-center active"
+    >
+      <img src="./images/garlic-shrimp.webp" class="custom-carousel-width" />
+      <div class="carousel-caption d-md-block">
+        <h5>Garlic Shrimp</h5>
+        <p>Finger-licking good UMAMI delicacy à la Mama!</p>
+      </div>
+    </div>
+    <div
+      class="carousel-item text-center justify-content-center align-items-center"
+    >
+      <img src="./images/lasagna.webp" class="custom-carousel-width" />
+      <div class="carousel-caption d-md-block">
+        <h5>Lasagna</h5>
+        <p>Just like Grand-Mama made it.</p>
+      </div>
+    </div>
+    <div
+      class="carousel-item text-center justify-content-center align-items-center"
+    >
+      <img src="./images/popcorn.webp" class="custom-carousel-width" />
+      <div class="carousel-caption d-md-block">
+        <h5>Popcorn</h5>
+        <p>Great fun and taste for small and grown-ups alike!</p>
+      </div>
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleCaptions"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleCaptions"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+{{! Featured }}
+<section class="mt-4">
+  <div class="card text-center">
+    <div class="card-body">
+      <h5 class="card-title">Discover a World of UMAMI</h5>
+      <p class="card-text">Check out all our recipes!</p>
+      <a href="/recipes" class="btn btn-primary">Go there</a>
+    </div>
+  </div>
+</section>
+
+{{! Quote }}
+<div class="card">
+  <div class="card-header">
+    Mantra of the whole page
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>"You are what you eat."</p>
+      <footer class="blockquote-footer">Everyone.
+        <cite title="Source Title">Ever.</cite></footer>
+    </blockquote>
+  </div>
+</div>
+
+<h1 class="text-center">Meet the creators of this website!</h1>
+
+{{! Group of cards }}
+<div class="card-group pb-4">
+  <div class="card">
+    <img
+      src="./images/cooking-mama-logo.png"
+      class="card-img-top"
+      id="profile"
+    />
+    <div class="card-body">
+      <h5 class="card-title text-center">Darren</h5>
+      <p class="card-text">
+        <br />
+        Profession: Online Marketing Manager - SEA & Display
+        <br />
+        <br />
+        e-mail: jack.le.tran.jlt@googlemail.com
+        <br />
+        <br />
+        Quote: All Glory be to Jesus
+        <br />
+        <br />
+        Favorite Food: My Dad's Panang Curry
+        <br />
+        <br />
+      </p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="./images/jack.jpeg" class="card-img-top" id="profile" />
+    <div class="card-body">
+      <h5 class="card-title text-center">Jack Lê</h5>
+      <p class="card-text">
+        <br />
+        Profession: Online Marketing Manager - SEA & Display
+        <br />
+        <br />
+        e-mail: jack.le.tran.jlt@googlemail.com
+        <br />
+        <br />
+        Quote: All Glory be to Jesus
+        <br />
+        <br />
+        Favorite Food: My Dad's Panang Curry
+        <br />
+        <br />
+      </p>
+    </div>
+  </div>
+</div>

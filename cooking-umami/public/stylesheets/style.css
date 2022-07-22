@@ -27,13 +27,19 @@ h5 {
   color: black;
   color: black;
   font-size: 3rem;
-  
+
 }
 
 p {
   color: black;
   font-size: 2rem;
 
+}
+
+.card-group p {
+  font-size: 1rem;
+  color: black;
+  text-shadow: none;
 }
 
 /* Custom Carousel Styling */
@@ -53,12 +59,14 @@ p {
   object-fit: cover;
   height: 40vw;
 }
-@media (min-width: 768px) { 
+
+@media (min-width: 768px) {
   .card-img-top {
     height: 30vw;
   }
 }
-@media (min-width: 1400px) { 
+
+@media (min-width: 1400px) {
   .card-img-top {
     height: 15vw;
   }
@@ -67,6 +75,7 @@ p {
 .carousel-caption {
   background-color: #ffffffa8;
 }
+
 /* Login Styles Start */
 
 .user_card {
@@ -161,11 +170,12 @@ p {
 /* Recipe Create End */
 
 /* Recipe Details Start */
- .recipe-details {
+.recipe-details {
   background-color: #ffffff5d;
   color: black !important;
   text-shadow: none !important;
 }
+
 .recipe-info {
   background-color: rgba(255, 255, 255, 0.823);
 }

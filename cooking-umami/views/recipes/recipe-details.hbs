@@ -1,3 +1,7 @@
+{{#if errorMessage}}  
+  <h1>{{errorMessage}}</h1>
+{{/if}}
+
 <section class="recipe-details container rounded">
   
   <h2 class="pb-3 pt-3">{{title}}</h2>
@@ -44,7 +48,9 @@
   </div>
   </div>
 
-  <div class="row pt-2">
+
+  <div class="row pt-2 pb-3">
+    {{#if isUserLoggedIn}}
     <div class="col-4 text-center">
        <a class="btn btn-primary" href="/recipes">Back</a>
     </div>
@@ -55,5 +61,10 @@
     <form action="/recipes/{{this._id}}/delete" method="POST">
     <button class="btn btn-danger">Delete</button>
     </div>
+  {{else}}
+      <div class="col-2 text-center mx-auto">
+       <a class="btn btn-primary" href="/recipes">Back</a>
+    </div>
+  {{/if}}
   </div>
 </section>
