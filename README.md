@@ -6,8 +6,9 @@
   - Discover and create beautiful recipes and share with friends and family!
 
 - instructions to run this app in your computer
-- install dependencies with (`npm install`)
-- run the application with (`npm run dev`)
+
+  - install dependencies with (`npm install`)
+  - run the application with (`npm run dev`)
 
 - Demo:
-- https://cooking-umami.herokuapp.com/
+  - https://cooking-umami.herokuapp.com/
