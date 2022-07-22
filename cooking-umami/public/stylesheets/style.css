@@ -54,6 +54,7 @@ p {
   background-color: #ffffffe2;
 }
 
+
 .card-img-top {
   width: 100%;
   object-fit: cover;
@@ -75,6 +76,13 @@ p {
 .carousel-caption {
   background-color: #ffffffa8;
 }
+.creators {
+  max-width: none;
+}
+
+.profile-photo {
+  height: 50vh;
+}
 
 /* Login Styles Start */
 
@@ -83,7 +91,7 @@ p {
   width: 350px;
   margin-top: auto;
   margin-bottom: auto;
-  background: black;
+  background: #ffc107;
   position: relative;
   display: flex;
   justify-content: center;
